@@ -34,7 +34,13 @@ export default function AiAssistant() {
       setMessages(prev => [...prev, { role: 'assistant', content: res.data.response }]);
     } catch (error) {
       console.error(error);
-      setMessages(prev => [...prev, { role: 'assistant', content: 'Sorry, I encountered an error communicating with the server.' }]);
+      let errorMsg = 'Sorry, I encountered an error communicating with the backend server.';
+      if (import.meta.env.VITE_API_URL) {
+        errorMsg += `\n\n⚠️ **Cloud Configuration Notice**: The frontend is trying to talk to the cloud backend at:\n\`${import.meta.env.VITE_API_URL}\`\n\nPlease ensure your Render backend service is deployed successfully and online! If you just redeployed, it may take 1-2 minutes for Render to wake up.`;
+      } else {
+        errorMsg += '\n\n⚠️ **Local Server Notice**: Please ensure your local backend server is running on `http://localhost:5000`!';
+      }
+      setMessages(prev => [...prev, { role: 'assistant', content: errorMsg }]);
     } finally {
       setLoading(false);
     }

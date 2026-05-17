@@ -20,7 +20,11 @@ const seedData = [
   { name: 'Gaming Headset', sku: 'GH-003', quantity: 25, costPricePKR: 5000, sellingPricePKR: 7200, category: 'Audio' },
   { name: 'Fast Charger 25W', sku: 'FC-004', quantity: 100, costPricePKR: 1100, sellingPricePKR: 1800, category: 'Accessories' },
   { name: 'RTX 4060 GPU', sku: 'GPU-005', quantity: 5, costPricePKR: 95000, sellingPricePKR: 118000, category: 'Components' },
-  { name: 'Office Chair', sku: 'OC-006', quantity: 12, costPricePKR: 12000, sellingPricePKR: 16500, category: 'Furniture' }
+  { name: 'Office Chair', sku: 'OC-006', quantity: 12, costPricePKR: 12000, sellingPricePKR: 16500, category: 'Furniture' },
+  { name: 'Smart Watch Ultra', sku: 'SW-007', quantity: 15, costPricePKR: 12000, sellingPricePKR: 18500, category: 'Electronics' },
+  { name: 'Noise Cancelling Earbuds', sku: 'EB-008', quantity: 40, costPricePKR: 8500, sellingPricePKR: 12900, category: 'Electronics' },
+  { name: 'USB-C Hub 8-in-1', sku: 'HB-009', quantity: 60, costPricePKR: 3500, sellingPricePKR: 5200, category: 'Electronics' },
+  { name: 'Curved Gaming Monitor 27"', sku: 'MN-010', quantity: 8, costPricePKR: 45000, sellingPricePKR: 58900, category: 'Electronics' }
 ];
 
 const seedDatabase = async () => {

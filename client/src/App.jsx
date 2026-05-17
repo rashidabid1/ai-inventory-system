@@ -19,7 +19,7 @@ function App() {
         <Sidebar isOpen={sidebarOpen} setIsOpen={setSidebarOpen} />
         
         {/* Mobile header bar */}
-        <div className="md:hidden flex items-center justify-between p-4 bg-surface/80 backdrop-blur-md border-b border-border fixed top-0 left-0 right-0 z-30 h-16">
+        <div className="md:hidden flex items-center justify-between p-4 bg-[#0B0F19]/90 backdrop-blur-md border-b border-border fixed top-0 left-0 right-0 z-30 h-16">
           <h1 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary to-purple-500">
             AInventory
           </h1>

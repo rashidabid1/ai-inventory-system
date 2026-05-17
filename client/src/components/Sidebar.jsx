@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { LayoutDashboard, Package, ShoppingCart, Truck, Users, Settings, Sparkles } from 'lucide-react';
+import { LayoutDashboard, Package, ShoppingCart, Truck, Users, Settings, Sparkles, X } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const navItems = [
@@ -13,19 +13,35 @@ const navItems = [
   { icon: Settings, label: 'Settings', path: '/settings' },
 ];
 
-export default function Sidebar() {
+export default function Sidebar({ isOpen, setIsOpen }) {
   return (
-    <motion.aside 
-      initial={{ x: -250 }}
-      animate={{ x: 0 }}
-      className="w-64 glass-panel border-r border-y-0 border-l-0 border-border flex flex-col z-10"
-    >
-      <div className="p-6 mb-4">
-        <h1 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary to-purple-500 flex items-center gap-2">
-          <Sparkles className="text-primary" />
-          AInventory
-        </h1>
-      </div>
+    <>
+      {/* Backdrop overlay on mobile */}
+      {isOpen && (
+        <div 
+          className="fixed inset-0 bg-background/60 backdrop-blur-sm z-40 md:hidden"
+          onClick={() => setIsOpen(false)}
+        />
+      )}
+      
+      <div 
+        className={`fixed inset-y-0 left-0 w-64 glass-panel border-r border-y-0 border-l-0 border-border flex flex-col z-50 transition-transform duration-300 md:relative md:translate-x-0 ${
+          isOpen ? 'translate-x-0' : '-translate-x-full'
+        }`}
+      >
+        <div className="p-6 mb-4 flex justify-between items-center">
+          <h1 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary to-purple-500 flex items-center gap-2">
+            <Sparkles className="text-primary" />
+            AInventory
+          </h1>
+          {/* Close button for mobile */}
+          <button 
+            onClick={() => setIsOpen(false)} 
+            className="p-1 hover:bg-surfaceHover rounded-lg text-gray-400 hover:text-white md:hidden"
+          >
+            <X className="w-5 h-5" />
+          </button>
+        </div>
       
       <nav className="flex-1 px-4 space-y-2">
         {navItems.map((item) => (
@@ -55,6 +71,6 @@ export default function Sidebar() {
           </div>
         </div>
       </div>
-    </motion.aside>
+    </>
   );
 }

@@ -33,10 +33,19 @@ export default function Sidebar({ isOpen, setIsOpen }) {
         }`}
       >
         <div className="p-6 mb-4 flex justify-between items-center">
-          <h1 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary to-purple-500 flex items-center gap-2">
-            <Sparkles className="text-primary" />
-            AInventory
-          </h1>
+          <div className="flex items-center gap-3">
+            <div className="relative flex items-center justify-center w-9 h-9 rounded-xl bg-gradient-to-br from-primary to-purple-600 shadow-[0_0_15px_rgba(99,102,241,0.3)] overflow-hidden">
+              <div className="absolute inset-[1px] bg-[#0B0F19] rounded-[10px] flex items-center justify-center">
+                <span className="text-sm font-black tracking-tighter bg-clip-text text-transparent bg-gradient-to-br from-primary to-purple-400">
+                  AI
+                </span>
+              </div>
+            </div>
+            <span className="text-xl font-bold tracking-tight text-white flex items-center">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-purple-400 font-extrabold">AI</span>
+              <span className="text-gray-200 font-medium">nventory</span>
+            </span>
+          </div>
           {/* Close button for mobile */}
           <button 
             onClick={() => setIsOpen(false)} 

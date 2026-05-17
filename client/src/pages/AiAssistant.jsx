@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import axios from 'axios';
 import { motion } from 'framer-motion';
 import { Send, Bot, User, Sparkles } from 'lucide-react';
+import ReactMarkdown from 'react-markdown';
 
 export default function AiAssistant() {
   const [messages, setMessages] = useState([
@@ -74,12 +75,33 @@ export default function AiAssistant() {
                 {msg.role === 'user' ? <User className="w-5 h-5 text-white" /> : <Bot className="w-5 h-5 text-white" />}
               </div>
               
-              <div className={`max-w-[70%] p-4 rounded-2xl ${
+              <div className={`max-w-[85%] md:max-w-[75%] p-4 rounded-2xl ${
                 msg.role === 'user' 
-                  ? 'bg-blue-600 text-white rounded-tr-none' 
-                  : 'bg-surfaceHover border border-border text-gray-200 rounded-tl-none whitespace-pre-wrap'
+                  ? 'bg-blue-600 text-white rounded-tr-none shadow-md shadow-blue-600/10' 
+                  : 'bg-surfaceHover border border-border text-gray-200 rounded-tl-none shadow-md shadow-black/20'
               }`}>
-                {msg.content}
+                {msg.role === 'user' ? (
+                  msg.content
+                ) : (
+                  <ReactMarkdown 
+                    components={{
+                      table: ({node, ...props}) => (
+                        <div className="overflow-x-auto my-4 rounded-xl border border-border bg-background/50 shadow-inner">
+                          <table className="w-full text-left border-collapse text-xs md:text-sm min-w-[500px]" {...props} />
+                        </div>
+                      ),
+                      thead: ({node, ...props}) => <thead className="bg-primary/10 border-b border-border text-white" {...props} />,
+                      tbody: ({node, ...props}) => <tbody className="divide-y divide-border/30" {...props} />,
+                      th: ({node, ...props}) => <th className="p-3 font-semibold text-primary" {...props} />,
+                      td: ({node, ...props}) => <td className="p-3 text-gray-300" {...props} />,
+                      h3: ({node, ...props}) => <h3 className="text-base font-bold text-white mt-4 mb-2" {...props} />,
+                      p: ({node, ...props}) => <p className="mb-2 last:mb-0 leading-relaxed" {...props} />,
+                      strong: ({node, ...props}) => <strong className="font-semibold text-white" {...props} />,
+                    }}
+                  >
+                    {msg.content}
+                  </ReactMarkdown>
+                )}
               </div>
             </motion.div>
           ))}

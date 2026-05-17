@@ -20,9 +20,19 @@ function AuthenticatedApp({ sidebarOpen, setSidebarOpen }) {
       
       {/* Mobile header bar */}
       <div className="md:hidden flex items-center justify-between p-4 bg-[#0B0F19]/90 backdrop-blur-md border-b border-border fixed top-0 left-0 right-0 z-30 h-16">
-        <h1 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary to-purple-500">
-          AInventory
-        </h1>
+        <div className="flex items-center gap-2">
+          <div className="relative flex items-center justify-center w-7 h-7 rounded-lg bg-gradient-to-br from-primary to-purple-600 shadow-[0_0_10px_rgba(99,102,241,0.3)] overflow-hidden">
+            <div className="absolute inset-[1px] bg-[#0B0F19] rounded-[7px] flex items-center justify-center">
+              <span className="text-[10px] font-black tracking-tighter bg-clip-text text-transparent bg-gradient-to-br from-primary to-purple-400">
+                AI
+              </span>
+            </div>
+          </div>
+          <span className="text-lg font-bold tracking-tight text-white flex items-center">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-purple-400 font-extrabold">AI</span>
+            <span className="text-gray-200 font-medium">nventory</span>
+          </span>
+        </div>
         <button 
           onClick={() => setSidebarOpen(true)}
           className="p-2 hover:bg-surfaceHover rounded-xl text-gray-300 hover:text-white"

@@ -37,12 +37,13 @@ ${JSON.stringify(sales.map(s => ({ qty: s.quantity, profit: s.profitPKR, date: s
 USER QUERY:
 ${query}
 
-INSTRUCTIONS:
-- If asked about low stock, refer to the "Low Stock Items" list.
-- If asked about inventory value, refer to the "Total Inventory Value".
-- If asked about dead stock, consider items with 0 sales or very low sales compared to quantity.
-- Keep the response professional, concise, and helpful. Use markdown formatting if necessary.
+- Keep the response professional, concise, and helpful.
+- **CRITICAL: NEVER output raw JSON or unformatted raw data.**
+- **CRITICAL: Always format lists of products, stock items, or sales reports using highly structured, clean Markdown tables (e.g., columns like | Product Name | Quantity | Price (PKR) | Status |) or styled bullet lists.**
+- Ensure that financial data uses commas for readability (e.g., 100,000 PKR).
+- Make sure the response is visually clean, highly readable, and structured for an executive-level presentation.
 - Do not make up data.
+
 `;
 
     // 3. Call Gemini

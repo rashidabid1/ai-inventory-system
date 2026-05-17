@@ -1,7 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { LayoutDashboard, Package, ShoppingCart, Truck, Users, Settings, Sparkles, X } from 'lucide-react';
+import { LayoutDashboard, Package, ShoppingCart, Truck, Users, Settings, Sparkles, X, LogOut } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useAppAuth } from '../hooks/useAppAuth';
 
 const navItems = [
   { icon: LayoutDashboard, label: 'Dashboard', path: '/' },
@@ -14,6 +15,8 @@ const navItems = [
 ];
 
 export default function Sidebar({ isOpen, setIsOpen }) {
+  const { user, signOut, isSignedIn } = useAppAuth();
+
   return (
     <>
       {/* Backdrop overlay on mobile */}
@@ -62,7 +65,31 @@ export default function Sidebar({ isOpen, setIsOpen }) {
         ))}
       </nav>
       
-      <div className="p-4 mt-auto">
+      <div className="p-4 mt-auto space-y-4">
+        {/* User profile card */}
+        {isSignedIn && user && (
+          <div className="p-3 rounded-xl bg-surface border border-border flex items-center justify-between gap-2">
+            <div className="flex items-center gap-3 min-w-0">
+              <img 
+                src={user.imageUrl} 
+                alt={user.fullName || 'User'} 
+                className="w-9 h-9 rounded-full border border-primary/30 object-cover shrink-0"
+              />
+              <div className="min-w-0">
+                <p className="text-sm font-semibold text-white truncate">{user.fullName || `${user.firstName || ''} ${user.lastName || ''}`.trim() || 'Rashid Abid'}</p>
+                <p className="text-xs text-gray-400 truncate">{user.primaryEmailAddress?.emailAddress}</p>
+              </div>
+            </div>
+            <button 
+              onClick={() => signOut()}
+              className="p-2 hover:bg-danger/10 text-gray-400 hover:text-danger rounded-lg transition-colors shrink-0"
+              title="Sign Out"
+            >
+              <LogOut className="w-4 h-4" />
+            </button>
+          </div>
+        )}
+
         <div className="p-4 rounded-xl bg-gradient-to-br from-primary/20 to-purple-500/20 border border-primary/20 backdrop-blur-md">
           <p className="text-xs text-gray-300 font-medium mb-1">System Status</p>
           <div className="flex items-center gap-2">

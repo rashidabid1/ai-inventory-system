@@ -54,7 +54,7 @@ INSTRUCTIONS:
     return response.text;
   } catch (error) {
     console.error('Gemini API Error:', error);
-    return "I'm sorry, I encountered an error while analyzing the data. Please ensure the GEMINI_API_KEY is properly configured.";
+    return `AI Error Details: ${error.message || error.toString()}`;
   }
 };
 

@@ -71,6 +71,7 @@ export default function Sidebar({ isOpen, setIsOpen }) {
           </div>
         </div>
       </div>
-    </>
+    </div>
+  </>
   );
 }

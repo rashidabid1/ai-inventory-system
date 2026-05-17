@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AInventory System Complete Project Report</title>
+  <title>AInventory System - Exhaustive Technical & Project Implementation Report</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     @media print {
@@ -17,15 +17,22 @@
       .no-print {
         display: none;
       }
+      .shadow-2xl, .shadow-lg, .shadow-md {
+        box-shadow: none !important;
+      }
+      .rounded-2xl, .rounded-xl {
+        border-radius: 0px !important;
+        border: none !important;
+      }
     }
   </style>
 </head>
 <body class="bg-gray-50 text-gray-900 font-sans leading-relaxed">
 
   <!-- Floating Print Helper Instruction (Hidden on Print) -->
-  <div class="no-print max-w-4xl mx-auto mt-6 p-4 bg-indigo-600 text-white rounded-xl shadow-lg flex justify-between items-center">
+  <div class="no-print max-w-5xl mx-auto mt-6 p-4 bg-indigo-600 text-white rounded-xl shadow-lg flex justify-between items-center">
     <div>
-      <h4 class="font-bold text-sm">🖨️ PDF Generation Guide:</h4>
+      <h4 class="font-bold text-sm">🖨️ Professional PDF Generation Panel</h4>
       <p class="text-xs text-indigo-100 mt-0.5">Your browser's printing menu should have popped up. If not, press <kbd class="bg-indigo-700 px-1.5 py-0.5 rounded font-mono font-bold">Ctrl + P</kbd> to save this as a high-end corporate PDF!</p>
     </div>
     <button onclick="window.print()" class="px-4 py-1.5 bg-white text-indigo-600 font-semibold text-xs rounded-lg hover:bg-indigo-50 transition-colors">
@@ -33,13 +40,13 @@
     </button>
   </div>
 
-  <div class="max-w-4xl mx-auto my-10 p-12 bg-white shadow-2xl rounded-2xl border border-gray-100 relative">
+  <div class="max-w-5xl mx-auto my-10 p-12 bg-white shadow-2xl rounded-2xl border border-gray-100 relative">
     
     <!-- Decorative border accent -->
     <div class="absolute top-0 left-0 right-0 h-3 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-t-2xl"></div>
 
     <!-- COVER PAGE -->
-    <div class="text-center py-20 min-h-[800px] flex flex-col justify-between">
+    <div class="text-center py-20 min-h-[900px] flex flex-col justify-between">
       <div>
         <div class="flex items-center justify-center gap-3 mb-6">
           <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-indigo-600 to-purple-600 flex items-center justify-center shadow-lg shadow-indigo-600/20">
@@ -49,25 +56,44 @@
             AI<span class="text-gray-500 font-medium">nventory</span>
           </span>
         </div>
-        <h1 class="text-4xl font-black text-indigo-950 tracking-tight leading-tight mt-6">
-          Enterprise MERN & AI-Powered<br>Inventory Management Suite
+        <h1 class="text-5xl font-black text-indigo-950 tracking-tight leading-tight mt-8">
+          Enterprise MERN Stack &<br>AI-Powered Inventory Suite
         </h1>
-        <p class="text-gray-500 text-lg mt-4 max-w-xl mx-auto">
-          Comprehensive project implementation, systems architecture, secure Clerk OAuth integration, and Gemini analytics reporting pipeline.
+        <p class="text-gray-500 text-lg mt-6 max-w-2xl mx-auto leading-relaxed">
+          Exhaustive Project Documentation, Systems Architecture, Secure Clerk Google OAuth Implementation, Database Schema Spec, and Gemini Analytics Data Pipelines.
         </p>
       </div>
 
-      <div class="border-t border-gray-100 pt-8 mt-12">
-        <div class="grid grid-cols-2 text-left max-w-md mx-auto text-sm">
+      <div class="bg-indigo-50/50 p-6 rounded-2xl border border-indigo-100 max-w-xl mx-auto text-left my-10 space-y-2 text-xs">
+        <div class="flex justify-between border-b border-indigo-100 pb-2">
+          <span class="text-indigo-600 font-semibold uppercase tracking-wider text-[10px]">Project Version</span>
+          <span class="font-bold text-indigo-950">v1.0.0 (Production Ready)</span>
+        </div>
+        <div class="flex justify-between border-b border-indigo-100 pb-2">
+          <span class="text-indigo-600 font-semibold uppercase tracking-wider text-[10px]">Primary Tech Stack</span>
+          <span class="font-bold text-indigo-950">MERN Stack (MongoDB, Express, React, Node)</span>
+        </div>
+        <div class="flex justify-between border-b border-indigo-100 pb-2">
+          <span class="text-indigo-600 font-semibold uppercase tracking-wider text-[10px]">AI Integration Engine</span>
+          <span class="font-bold text-indigo-950">Google Gemini 2.5 Flash SDK</span>
+        </div>
+        <div class="flex justify-between">
+          <span class="text-indigo-600 font-semibold uppercase tracking-wider text-[10px]">Security Framework</span>
+          <span class="font-bold text-indigo-950">Clerk Google OAuth 2.0 Router</span>
+        </div>
+      </div>
+
+      <div class="border-t border-gray-100 pt-8">
+        <div class="grid grid-cols-2 text-left max-w-md mx-auto text-xs">
           <div>
-            <p class="text-gray-400 uppercase tracking-wider font-semibold text-[10px]">Client / Author</p>
-            <p class="font-bold text-gray-800 mt-0.5">Muhammad Rashid Abid</p>
-            <p class="text-xs text-gray-500">AInventory Project Admin</p>
+            <p class="text-gray-400 uppercase tracking-wider font-semibold text-[10px]">Author & Principal Admin</p>
+            <p class="font-bold text-gray-800 mt-0.5 text-sm">Muhammad Rashid Abid</p>
+            <p class="text-xs text-gray-500">AInventory Project Administrator</p>
           </div>
           <div class="text-right">
-            <p class="text-gray-400 uppercase tracking-wider font-semibold text-[10px]">Date of Release</p>
-            <p class="font-bold text-gray-800 mt-0.5">${new Date().toLocaleDateString()}</p>
-            <p class="text-xs text-gray-500">System Document v1.0.0</p>
+            <p class="text-gray-400 uppercase tracking-wider font-semibold text-[10px]">Date of Publication</p>
+            <p class="font-bold text-gray-800 mt-0.5 text-sm">${new Date().toLocaleDateString()}</p>
+            <p class="text-xs text-gray-500">System Document ID: AINV-REP-2026</p>
           </div>
         </div>
       </div>
@@ -75,117 +101,349 @@
 
     <div class="page-break"></div>
 
-    <!-- SECTION 1: EXECUTIVE SUMMARY -->
-    <div class="my-8">
+    <!-- TABLE OF CONTENTS -->
+    <div class="py-6">
       <h2 class="text-2xl font-bold text-indigo-900 border-b border-indigo-100 pb-3 mb-6 flex items-center gap-2">
-        <span class="w-2.5 h-6 bg-indigo-600 rounded-full"></span> 1. Executive Summary
+        <span class="w-2.5 h-6 bg-indigo-600 rounded-full"></span> Table of Contents
       </h2>
-      <p class="text-gray-700 text-sm leading-relaxed mb-4">
-        <strong>AInventory</strong> is a state-of-the-art enterprise resource planning (ERP) application designed to modernize traditional retail and warehouse logistics. Built using a secure <strong>MERN (MongoDB, Express, React, Node.js)</strong> stack, it introduces conversational business intelligence by linking live database ledgers directly to <strong>Google Gemini 2.5 Flash</strong> models.
-      </p>
-      <p class="text-gray-700 text-sm leading-relaxed">
-        With 100% responsiveness engineered for desktop and mobile viewports, the platform integrates **Clerk Social Authentication** to guarantee encrypted private workspace access, alongside custom exporters supporting instant multi-format reporting.
-      </p>
-    </div>
-
-    <!-- SECTION 2: ARCHITECTURE & DATA FLOW -->
-    <div class="my-12">
-      <h2 class="text-2xl font-bold text-indigo-900 border-b border-indigo-100 pb-3 mb-6 flex items-center gap-2">
-        <span class="w-2.5 h-6 bg-indigo-600 rounded-full"></span> 2. System Architecture & Data Flow
-      </h2>
-      <div class="p-6 bg-gray-50 rounded-2xl border border-gray-100 text-xs font-semibold leading-relaxed mb-6">
-        <div class="flex justify-between items-center gap-4 text-center">
-          <div class="p-3 bg-indigo-100 text-indigo-700 rounded-lg w-1/4">User Browser / Mobile</div>
-          <div class="text-gray-400">&rarr;</div>
-          <div class="p-3 bg-purple-100 text-purple-700 rounded-lg w-1/4">Vite React Frontend</div>
-          <div class="text-gray-400">&rarr;</div>
-          <div class="p-3 bg-pink-100 text-pink-700 rounded-lg w-1/4">Node/Express Server</div>
-          <div class="text-gray-400">&rarr;</div>
-          <div class="p-3 bg-green-100 text-green-700 rounded-lg w-1/4">MongoDB / Gemini AI</div>
-        </div>
-      </div>
-      <p class="text-gray-700 text-sm leading-relaxed">
-        The application decouples client-side rendering from server-side analytical execution:
-      </p>
-      <ul class="list-disc list-inside text-sm text-gray-600 space-y-2 mt-3">
-        <li><strong>Frontend:</strong> Governed by Vite, React Router DOM, and Tailwind CSS. Authenticated routes are locked via Clerk Auth wrappers.</li>
-        <li><strong>Backend:</strong> Built on Express, Mongoose schemas map relational database entities. Route calls verify authorization headers to prevent data exposure.</li>
-        <li><strong>AI Integration:</strong> Uses live payload parsing pipelines to pass database status summaries directly into the Gemini AI generation block, strictly outputting optimized tables and ledgers.</li>
+      <ul class="space-y-3 text-sm text-gray-700">
+        <li class="flex justify-between">
+          <span class="font-semibold">1. Executive Summary & Project Overview</span>
+          <span class="text-gray-400">Page 3</span>
+        </li>
+        <li class="flex justify-between">
+          <span class="font-semibold">2. Comprehensive File Structure & Directory Map</span>
+          <span class="text-gray-400">Page 3</span>
+        </li>
+        <li class="flex justify-between">
+          <span class="font-semibold">3. Full-Stack MERN Architecture Specs</span>
+          <span class="text-gray-400">Page 4</span>
+        </li>
+        <li class="flex justify-between">
+          <span class="font-semibold">4. API Endpoint Specifications (Extended REST)</span>
+          <span class="text-gray-400">Page 5</span>
+        </li>
+        <li class="flex justify-between">
+          <span class="font-semibold">5. Mongoose Data Schema Models</span>
+          <span class="text-gray-400">Page 6</span>
+        </li>
+        <li class="flex justify-between">
+          <span class="font-semibold">6. User Manual & Operations Guide</span>
+          <span class="text-gray-400">Page 7</span>
+        </li>
+        <li class="flex justify-between">
+          <span class="font-semibold">7. Setup, Local Execution & Cloud Deployment Runbook</span>
+          <span class="text-gray-400">Page 8</span>
+        </li>
       </ul>
     </div>
 
     <div class="page-break"></div>
 
-    <!-- SECTION 3: DATA SPECIFICATIONS -->
-    <div class="my-8">
+    <!-- SECTION 1: EXECUTIVE SUMMARY -->
+    <div class="py-6">
       <h2 class="text-2xl font-bold text-indigo-900 border-b border-indigo-100 pb-3 mb-6 flex items-center gap-2">
-        <span class="w-2.5 h-6 bg-indigo-600 rounded-full"></span> 3. Core Technical Implementations
+        <span class="w-2.5 h-6 bg-indigo-600 rounded-full"></span> 1. Executive Summary & Project Overview
       </h2>
+      <div class="space-y-4 text-gray-700 text-sm leading-relaxed">
+        <p>
+          In the modern landscape of logistics and resource coordination, legacy spreadsheet applications fail to deliver real-time operational efficiency and data transparency. **AInventory** resolves these deficits by presenting a comprehensive, secure ERP and analytics application that enables warehouse operators to manage stock, analyze cost structures, record dynamic sales depletion, and query data logs using natural language.
+        </p>
+        <p>
+          By implementing a robust backend with Express and Mongoose alongside a gorgeous glassmorphism frontend engineered in Vite and React, the system presents fluid interactions designed to engage administrators. With multi-tenant architecture secured by **Clerk Google Social Login** and natural language query pipelines backed by the **Google Gemini 2.5 Flash SDK**, AInventory shifts standard static data metrics into highly responsive, executive-level insights.
+        </p>
+      </div>
+    </div>
+
+    <!-- SECTION 2: COMPREHENSIVE FILE STRUCTURE -->
+    <div class="py-6">
+      <h2 class="text-2xl font-bold text-indigo-900 border-b border-indigo-100 pb-3 mb-6 flex items-center gap-2">
+        <span class="w-2.5 h-6 bg-indigo-600 rounded-full"></span> 2. Comprehensive File Structure & Directory Map
+      </h2>
+      <p class="text-gray-700 text-sm leading-relaxed mb-4">
+        Below is the fully organized repository structure for the AInventory application, detailing the separation of concerns between client components and server logic:
+      </p>
       
-      <div class="space-y-6">
+      <div class="p-6 bg-gray-900 text-gray-300 font-mono text-[11px] rounded-xl overflow-x-auto shadow-inner leading-relaxed">
+<pre>
+ai-inventory-system/
+├── client/                     # React Vite Frontend Application
+│   ├── src/
+│   │   ├── components/         # Reusable Global UI Elements
+│   │   │   ├── Sidebar.jsx     # Responsive Navigation Sidebar & Profile Card
+│   │   │   └── AuthProvider.jsx # Conditional Clerk & Mock Development Auth Provider
+│   │   ├── hooks/
+│   │   │   └── useAppAuth.js   # Adapter hook decoupling Clerk Auth from UI components
+│   │   ├── pages/              # Main Route Views
+│   │   │   ├── Dashboard.jsx   # Dynamic Chart Visualizer and KPI Cards
+│   │   │   ├── Inventory.jsx   # Main Inventory Catalogue Ledger
+│   │   │   ├── Sales.jsx       # Sales Record Register
+│   │   │   ├── Purchases.jsx   # Resting Supplier Purchases Registry
+│   │   │   ├── Directory.jsx   # Workspace Staff Directory
+│   │   │   ├── Settings.jsx    # Regional preferences & Document Export Hub
+│   │   │   └── AiAssistant.jsx # Chatbot panel with Custom Markdown-to-HTML parser
+│   │   ├── App.jsx             # Main Router Configuration & Login Portal
+│   │   ├── main.jsx            # Entry point wrapping App in AuthProvider
+│   │   └── index.css           # Core Styling Tokens & Tailwind Directives
+│   ├── package.json            # Client Dependencies (@clerk/clerk-react, react-markdown)
+│   └── .env                    # Client Environment Keys (VITE_CLERK_PUBLISHABLE_KEY)
+│
+├── server/                     # Node.js & Express REST Backend Application
+│   ├── models/                 # Mongoose Database Schemas
+│   │   ├── Product.js          # Inventory Item Specifications Schema
+│   │   ├── Sale.js             # Customer Transactions & Profit Tracking Schema
+│   │   ├── Purchase.js         # REST Supplier Orders Schema
+│   │   └── AiLog.js            # MongoDB logs for Assistant conversational metrics
+│   ├── services/
+│   │   └── ai.service.js       # Gemini 2.5 Flash SDK Integration & prompt engineering
+│   ├── routes/
+│   │   ├── products.js         # REST endpoints managing Catalogue CRUD Operations
+│   │   ├── sales.js            # REST endpoints managing Depletion Ledger
+│   │   ├── purchases.js        # REST endpoints managing Stock Replenishment
+│   │   └── ai.js               # Conversational Query Handler
+│   ├── server.js               # REST Bootloader, MongoDB Router & DB Seed function
+│   ├── package.json            # Server Dependencies (@google/genai, mongoose, dotenv)
+│   └── .env                    # Cloud Credentials (MONGO_URI, GEMINI_API_KEY)
+</pre>
+      </div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <!-- SECTION 3: MERN STACK ARCHITECTURE -->
+    <div class="py-6">
+      <h2 class="text-2xl font-bold text-indigo-900 border-b border-indigo-100 pb-3 mb-6 flex items-center gap-2">
+        <span class="w-2.5 h-6 bg-indigo-600 rounded-full"></span> 3. Full-Stack MERN Architecture Specs
+      </h2>
+      <div class="space-y-6 text-gray-700 text-sm leading-relaxed">
+        
         <div>
-          <h3 class="font-bold text-indigo-950 text-sm mb-2">3.1 Clerk Google Social Login Gateway</h3>
-          <p class="text-xs text-gray-600 leading-relaxed mb-3">
-            Integrated a premium multi-tenant social auth portal. Incorporates a dynamic bypass adapter hook that allows local developers to test dashboard environments as a guest session without breaking the compilation if environment variables are absent.
+          <h3 class="text-lg font-bold text-indigo-950 mb-2">3.1 Hybrid Social Authentication Model</h3>
+          <p>
+            To achieve high levels of workspace isolation while enabling lightweight local developer setup, a **Hybrid Auth Adapter Pattern** was implemented. 
+          </p>
+          <p class="mt-2">
+            The wrapper `AuthProvider.jsx` reads `VITE_CLERK_PUBLISHABLE_KEY`. If this key is absent, the system boots into **Developer Guest Mode** by injecting a mock user configuration (`Rashid Abid`). If the key is detected, it securely loads Clerk's React SDK. The `useAppAuth.js` adapter decouples this toggle from components like `Sidebar.jsx`, presenting a unified API (`isSignedIn`, `user`, `signOut()`) regardless of the active authentication provider.
           </p>
         </div>
 
         <div>
-          <h3 class="font-bold text-indigo-950 text-sm mb-2">3.2 React-Markdown Chat Render Pipeline</h3>
-          <p class="text-xs text-gray-600 leading-relaxed mb-3">
-            Optimized the AI assistant's chat bubble to parse markdown formatting. Intercepts standard tables, header ranks, bold parameters, and translates them into styled HTML elements with custom glassmorphism parameters.
+          <h3 class="text-lg font-bold text-indigo-950 mb-2">3.2 Real-time Financial Profit Extraction</h3>
+          <p>
+            Instead of standard static inventory logging, the **Sales Ledger Engine** calculates profitability in real-time. When a transaction is submitted, the Express route fetches the targeted Product document, verifies whether the requested quantity is available, extracts the cost price, computes the total sale cost, subtracts it from the selling price, and registers the remaining sum directly into the `profitPKR` field of the `Sale` schema. This allows the frontend dashboard to display absolute gross margins immediately.
           </p>
         </div>
 
         <div>
-          <h3 class="font-bold text-indigo-950 text-sm mb-2">3.3 Double-Format Document Export Hub</h3>
-          <p class="text-xs text-gray-600 leading-relaxed">
-            Engineered clean, client-side report generators that fetch database catalogs and export them either as perfectly formatted PDF catalogs with visual stock counters or as standard CSV files optimized for Microsoft Excel.
+          <h3 class="text-lg font-bold text-indigo-950 mb-2">3.3 Secure Backend API Decoupling</h3>
+          <p>
+            All network communication is dynamically resolved by the frontend reading `import.meta.env.VITE_API_URL` with a standard fallback to `http://localhost:5000`. Environment keys are completely isolated on the server-side, protecting your Mongoose connections and the Google Gemini API keys from browser inspection.
           </p>
         </div>
       </div>
     </div>
 
-    <!-- SECTION 4: DATABASE SCHEMAS -->
-    <div class="my-12">
+    <!-- SECTION 4: API ENDPOINT SPECIFICATIONS -->
+    <div class="py-6">
       <h2 class="text-2xl font-bold text-indigo-900 border-b border-indigo-100 pb-3 mb-6 flex items-center gap-2">
-        <span class="w-2.5 h-6 bg-indigo-600 rounded-full"></span> 4. Database Schema Specifications
+        <span class="w-2.5 h-6 bg-indigo-600 rounded-full"></span> 4. API Endpoint Specifications (Extended REST)
       </h2>
-      <table class="w-full text-left border-collapse text-xs md:text-sm">
-        <thead>
-          <tr class="bg-indigo-600 text-white">
-            <th class="p-3 font-semibold rounded-l-lg">Model</th>
-            <th class="p-3 font-semibold">Key Fields</th>
-            <th class="p-3 font-semibold">Data Types</th>
-            <th class="p-3 font-semibold rounded-r-lg">Purpose</th>
-          </tr>
-        </thead>
-        <tbody class="divide-y divide-gray-200 text-gray-700">
-          <tr class="hover:bg-gray-50">
-            <td class="p-3 font-bold text-indigo-900">Product</td>
-            <td class="p-3 font-mono text-[11px]">name, sku, quantity, costPricePKR, sellingPricePKR, category</td>
-            <td class="p-3 text-xs">String, Number, Date</td>
-            <td class="p-3 text-xs text-gray-500">Main catalog list</td>
-          </tr>
-          <tr class="hover:bg-gray-50">
-            <td class="p-3 font-bold text-indigo-900">Sale</td>
-            <td class="p-3 font-mono text-[11px]">productId, quantity, sellingPricePKR, totalAmountPKR, profitPKR, date</td>
-            <td class="p-3 text-xs">ObjectId, Number, Date</td>
-            <td class="p-3 text-xs text-gray-500">Depletion and profit tracking</td>
-          </tr>
-          <tr class="hover:bg-gray-50">
-            <td class="p-3 font-bold text-indigo-900">Purchase</td>
-            <td class="p-3 font-mono text-[11px]">supplierName, itemName, quantity, costPricePKR, totalAmountPKR, date</td>
-            <td class="p-3 text-xs">String, Number, Date</td>
-            <td class="p-3 text-xs text-gray-500">Expenses and supplier ledgers</td>
-          </tr>
-        </tbody>
-      </table>
+      
+      <div class="space-y-6 text-xs md:text-sm text-gray-700">
+        
+        <div class="p-4 bg-gray-50 border border-gray-200 rounded-xl space-y-2">
+          <div class="flex items-center gap-2">
+            <span class="px-2.5 py-0.5 bg-green-100 text-green-700 rounded font-mono font-bold text-xs">GET</span>
+            <span class="font-mono text-indigo-900 font-bold">/api/products</span>
+          </div>
+          <p class="text-xs text-gray-500">Fetches all products inside the Mongoose catalogue. Ideal for loading ledgers or populating select inputs.</p>
+        </div>
+
+        <div class="p-4 bg-gray-50 border border-gray-200 rounded-xl space-y-2">
+          <div class="flex items-center gap-2">
+            <span class="px-2.5 py-0.5 bg-blue-100 text-blue-700 rounded font-mono font-bold text-xs">POST</span>
+            <span class="font-mono text-indigo-900 font-bold">/api/products</span>
+          </div>
+          <p class="text-xs text-gray-500">Registers a new product document. Validates unique SKU parameters prior to MongoDB commit.</p>
+        </div>
+
+        <div class="p-4 bg-gray-50 border border-gray-200 rounded-xl space-y-2">
+          <div class="flex items-center gap-2">
+            <span class="px-2.5 py-0.5 bg-blue-100 text-blue-700 rounded font-mono font-bold text-xs">POST</span>
+            <span class="font-mono text-indigo-900 font-bold">/api/sales</span>
+          </div>
+          <p class="text-xs text-gray-500">Submits a new customer sale. Verifies stock, depletes Product document quantity, and registers exact gross profit values.</p>
+        </div>
+
+        <div class="p-4 bg-gray-50 border border-gray-200 rounded-xl space-y-2">
+          <div class="flex items-center gap-2">
+            <span class="px-2.5 py-0.5 bg-blue-100 text-blue-700 rounded font-mono font-bold text-xs">POST</span>
+            <span class="font-mono text-indigo-900 font-bold">/api/ai/query</span>
+          </div>
+          <p class="text-xs text-gray-500">Core analytical endpoint. Summarizes current products, recent sales logs, total capital, and low stock items before transmitting the dataset to Gemini 2.5 Flash. Stores user query and assistant outputs directly in the `AiLog` schema.</p>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <!-- SECTION 5: DATA SCHEMAS -->
+    <div class="py-6">
+      <h2 class="text-2xl font-bold text-indigo-900 border-b border-indigo-100 pb-3 mb-6 flex items-center gap-2">
+        <span class="w-2.5 h-6 bg-indigo-600 rounded-full"></span> 5. Database Schema Specifications (Mongoose)
+      </h2>
+      <p class="text-gray-700 text-sm leading-relaxed mb-6">
+        Below is the explicit code implementation of Mongoose Schemas configured inside your Express backend:
+      </p>
+
+      <div class="space-y-6">
+        <div>
+          <h3 class="font-bold text-indigo-950 text-sm mb-2">5.1 Product Schema Specification</h3>
+          <div class="p-4 bg-gray-900 text-gray-300 font-mono text-[10px] rounded-xl overflow-x-auto">
+<pre>
+const mongoose = require('mongoose');
+
+const productSchema = new mongoose.Schema({
+  name: { type: String, required: true },
+  sku: { type: String, required: true, unique: true },
+  quantity: { type: Number, required: true, default: 0 },
+  costPricePKR: { type: Number, required: true },
+  sellingPricePKR: { type: Number, required: true },
+  category: { type: String, required: true },
+}, { timestamps: true });
+
+module.exports = mongoose.model('Product', productSchema);
+</pre>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="font-bold text-indigo-950 text-sm mb-2">5.2 Sale Schema Specification</h3>
+          <div class="p-4 bg-gray-900 text-gray-300 font-mono text-[10px] rounded-xl overflow-x-auto">
+<pre>
+const mongoose = require('mongoose');
+
+const saleSchema = new mongoose.Schema({
+  productId: { type: mongoose.Schema.Types.ObjectId, ref: 'Product', required: true },
+  quantity: { type: Number, required: true },
+  sellingPricePKR: { type: Number, required: true },
+  totalAmountPKR: { type: Number, required: true },
+  profitPKR: { type: Number, required: true },
+  date: { type: Date, default: Date.now }
+});
+
+module.exports = mongoose.model('Sale', saleSchema);
+</pre>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="font-bold text-indigo-950 text-sm mb-2">5.3 Assistant Conversation Log Schema Spec</h3>
+          <div class="p-4 bg-gray-900 text-gray-300 font-mono text-[10px] rounded-xl overflow-x-auto">
+<pre>
+const mongoose = require('mongoose');
+
+const aiLogSchema = new mongoose.Schema({
+  query: { type: String, required: true },
+  response: { type: String, required: true },
+  timestamp: { type: Date, default: Date.now }
+});
+
+module.exports = mongoose.model('AiLog', aiLogSchema);
+</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <!-- SECTION 6: USER MANUAL -->
+    <div class="py-6">
+      <h2 class="text-2xl font-bold text-indigo-900 border-b border-indigo-100 pb-3 mb-6 flex items-center gap-2">
+        <span class="w-2.5 h-6 bg-indigo-600 rounded-full"></span> 6. User Manual & Operations Guide
+      </h2>
+      
+      <div class="space-y-6 text-gray-700 text-sm leading-relaxed">
+        <div>
+          <h3 class="font-bold text-indigo-950 text-base mb-1">6.1 Accessing the Platform</h3>
+          <p>
+            When entering the live environment, you are prompted with the secure Sign-In gate. Click **"Continue with Google"** to establish a secure link. If running in a local setting without a Clerk token, the interface redirects automatically to the Dashboard under a secure Guest session.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="font-bold text-indigo-950 text-base mb-1">6.2 Conversing with the AI Assistant</h3>
+          <p>
+            Navigate to the **AI Assistant** panel. In the dialogue input, enter questions like:
+            <span class="block mt-2 italic font-semibold text-indigo-700">"Which products are currently low in stock and what are their values?"</span>
+            The chatbot communicates with the Gemini engine and returns custom, beautiful HTML tables detailing names, quantities, and values in real-time.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="font-bold text-indigo-950 text-base mb-1">6.3 Dynamic Data Exports</h3>
+          <p>
+            Go to the **Settings** view. Under the **Document & Export Hub**, select your preferred document type:
+          </p>
+          <ul class="list-disc list-inside space-y-1 mt-2 text-xs text-gray-600 ml-4">
+            <li><strong>Download PDF Ledger:</strong> Dynamic PDF generation displaying key KPIs and catalog margins.</li>
+            <li><strong>Export Excel Spreadsheet:</strong> UTF-8 CSV spreadsheet generation, immediately parsed by Excel.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 7: SETUP & DEPLOYMENT RUNBOOK -->
+    <div class="py-6">
+      <h2 class="text-2xl font-bold text-indigo-900 border-b border-indigo-100 pb-3 mb-6 flex items-center gap-2">
+        <span class="w-2.5 h-6 bg-indigo-600 rounded-full"></span> 7. Setup & Cloud Deployment Runbook
+      </h2>
+      
+      <div class="space-y-6 text-gray-700 text-sm leading-relaxed">
+        <div>
+          <h3 class="font-bold text-indigo-950 text-base mb-2">7.1 Local Server Boot Procedures</h3>
+          <p class="mb-3">Start both server and client sub-directories locally using standard shell prompts:</p>
+          <div class="p-4 bg-gray-900 text-gray-300 font-mono text-xs rounded-xl space-y-2">
+            <p><span class="text-indigo-400"># Start Express API Server</span></p>
+            <p>cd server && npm install && npm start</p>
+            <p class="pt-2"><span class="text-indigo-400"># Start Vite React Server</span></p>
+            <p>cd client && npm install && npm run dev</p>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="font-bold text-indigo-950 text-base mb-2">7.2 Cloud Vercel Frontend Configurations</h3>
+          <p class="mb-3">Configure Vercel variable settings before deployment:</p>
+          <table class="w-full text-left border-collapse text-xs">
+            <thead>
+              <tr class="bg-indigo-600 text-white">
+                <th class="p-2 font-semibold rounded-l">Variable Key</th>
+                <th class="p-2 font-semibold">Value Description</th>
+                <th class="p-2 font-semibold rounded-r">Purpose</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-200 text-gray-600">
+              <tr>
+                <td class="p-2 font-bold font-mono text-indigo-900">VITE_CLERK_PUBLISHABLE_KEY</td>
+                <td class="p-2">Your Clerk APP ID Key</td>
+                <td class="p-2 text-xs">Triggers Clerk Sign-In wrapper</td>
+              </tr>
+              <tr>
+                <td class="p-2 font-bold font-mono text-indigo-900">VITE_API_URL</td>
+                <td class="p-2">https://your-backend.onrender.com</td>
+                <td class="p-2 text-xs">Links frontend page elements to backend API</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
 
     <!-- SIGNATURES -->
     <div class="mt-20 border-t border-gray-100 pt-8 text-center text-xs text-gray-400">
-      AInventory Management Suite &bull; Private & Confidential System Document
+      AInventory ERP Analytics Suite &bull; Exhaustive Technical Report &bull; Private & Confidential System Document
     </div>
 
   </div>
@@ -193,7 +451,6 @@
   <!-- Print Auto-trigger Script -->
   <script>
     window.onload = function() {
-      // Trigger browser printing automatically
       setTimeout(() => {
         window.print();
       }, 500);

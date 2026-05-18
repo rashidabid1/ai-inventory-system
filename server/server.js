@@ -1,8 +1,17 @@
+const dns = require('dns');
+try {
+  dns.setServers(['8.8.8.8', '1.1.1.1']);
+  console.log('DNS servers configured globally to [8.8.8.8, 1.1.1.1] for robust MongoDB SRV resolution.');
+} catch (err) {
+  console.warn('Failed to set custom DNS servers:', err.message);
+}
+
 const express = require('express');
 const dotenv = require('dotenv');
 const cors = require('cors');
 const connectDB = require('./config/db');
 const Product = require('./models/Product');
+
 
 // Load env vars
 dotenv.config();

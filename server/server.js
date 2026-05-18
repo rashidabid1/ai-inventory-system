@@ -27,17 +27,37 @@ const seedData = [
   { name: 'Curved Gaming Monitor 27"', sku: 'MN-010', quantity: 8, costPricePKR: 45000, sellingPricePKR: 58900, category: 'Electronics' }
 ];
 
+// Initialize global virtual memory store collections as robust runtime fallbacks
+global.virtualProducts = seedData.map((item, idx) => ({
+  ...item,
+  _id: `v-prod-${idx + 1}`
+}));
+global.virtualSales = [];
+global.virtualPurchases = [];
+
 const seedDatabase = async () => {
-  const count = await Product.countDocuments();
-  if (count === 0) {
-    await Product.insertMany(seedData);
-    console.log('In-Memory Database Seeded Automatically!');
+  try {
+    if (global.useVirtualDB) {
+      console.log('Using Virtual In-Memory Fallback Database.');
+      return;
+    }
+    const count = await Product.countDocuments();
+    if (count === 0) {
+      await Product.insertMany(seedData);
+      console.log('In-Memory Database Seeded Automatically!');
+    }
+  } catch (error) {
+    console.error('Error during database seeding, falling back to virtual database:', error.message);
+    global.useVirtualDB = true;
   }
 };
 
 // Connect to database and seed
 connectDB().then(() => {
   seedDatabase();
+}).catch((err) => {
+  console.error('Failed to connect to Mongoose, running on virtual memory database:', err.message);
+  global.useVirtualDB = true;
 });
 
 // Routes

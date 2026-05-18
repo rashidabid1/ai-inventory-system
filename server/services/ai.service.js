@@ -2,18 +2,97 @@ const { GoogleGenAI } = require('@google/genai');
 const Product = require('../models/Product');
 const Sale = require('../models/Sale');
 
-// Initialize Gemini Client
-const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
+// Initialize Gemini Client safely
+let ai = null;
+if (process.env.GEMINI_API_KEY && process.env.GEMINI_API_KEY.trim() !== '') {
+  try {
+    ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
+  } catch (err) {
+    console.error('Failed to initialize GoogleGenAI client:', err.message);
+  }
+}
+
+const processMockQuery = (query, products, sales, totalInventoryValue, lowStockItems) => {
+  const lower = query.toLowerCase();
+  
+  if (lower.includes('product') || lower.includes('list') || lower.includes('inventory') || lower.includes('stock')) {
+    let table = `| Product Name | SKU | Quantity | Cost Price (PKR) | Selling Price (PKR) | Status |\n|:---|:---|:---:|:---:|:---:|:---:|\n`;
+    products.forEach(p => {
+      const status = p.quantity < 10 ? '🔴 Low Stock' : '🟢 Optimal';
+      table += `| ${p.name} | ${p.sku} | ${p.quantity} | ${p.costPricePKR.toLocaleString()} | ${p.sellingPricePKR.toLocaleString()} | ${status} |\n`;
+    });
+    
+    return `### 📊 Current Inventory Catalogue Analysis (Simulated AI Engine)
+
+Here is a structured overview of all registered products in your inventory catalogue:
+
+${table}
+
+**Key Metrics Summarized:**
+- **Total Registered Lines:** ${products.length}
+- **Total Asset Value:** ${totalInventoryValue.toLocaleString()} PKR
+- **Low Stock Alerts:** ${lowStockItems.length} lines need immediate reordering.`;
+  }
+  
+  if (lower.includes('metric') || lower.includes('value') || lower.includes('cost') || lower.includes('summary') || lower.includes('profit')) {
+    const projectedRev = products.reduce((acc, p) => acc + (p.quantity * p.sellingPricePKR), 0);
+    const projectedProfit = products.reduce((acc, p) => acc + (p.quantity * (p.sellingPricePKR - p.costPricePKR)), 0);
+    
+    return `### 📈 System Financial and Stock Summary (Simulated AI Engine)
+
+Based on the current stock sheets, here are the key operational metrics:
+
+- **💰 Total Asset Value (at cost):** ${totalInventoryValue.toLocaleString()} PKR
+- **📦 Total Units in Stock:** ${products.reduce((acc, p) => acc + p.quantity, 0)} units
+- **🔴 Low Stock Alert Count:** ${lowStockItems.length} items
+- **💵 Projected Revenue (if sold out):** ${projectedRev.toLocaleString()} PKR
+- **🔥 Projected Net Profit Margin:** ${projectedProfit.toLocaleString()} PKR`;
+  }
+
+  // Default response
+  return `### 🤖 AI Inventory Assistant Response (Simulated Mode)
+
+Thank you for your question: *"${query}"*
+
+I am running in **Resilient Simulation Mode** because no external Gemini API key is configured. Here is the operational state of your system:
+
+- **Total active inventory lines:** ${products.length}
+- **Total active units:** ${products.reduce((acc, p) => acc + p.quantity, 0)}
+- **Low stock alerts:** ${lowStockItems.length}
+- **Asset value:** ${totalInventoryValue.toLocaleString()} PKR
+
+*Tip: Add a \`GEMINI_API_KEY\` to your backend configuration to enable fully customized natural language processing.*`;
+};
 
 const processQuery = async (query) => {
   try {
-    // 1. Fetch current database state to provide as context
-    const products = await Product.find().lean();
-    const sales = await Sale.find().lean().sort({ date: -1 }).limit(100);
+    // 1. Fetch current database state or fallback to virtual database state
+    let products = [];
+    let sales = [];
+    
+    if (global.useVirtualDB) {
+      products = global.virtualProducts || [];
+      sales = global.virtualSales || [];
+    } else {
+      try {
+        products = await Product.find().lean();
+        sales = await Sale.find().lean().sort({ date: -1 }).limit(100);
+      } catch (dbErr) {
+        console.error('Failed to query Mongo, using virtual DB instead:', dbErr.message);
+        global.useVirtualDB = true;
+        products = global.virtualProducts || [];
+        sales = global.virtualSales || [];
+      }
+    }
 
     // Calculate some basic metrics for the AI
     const totalInventoryValue = products.reduce((acc, p) => acc + (p.quantity * p.costPricePKR), 0);
     const lowStockItems = products.filter(p => p.quantity < 10);
+    
+    // Check if we should fall back to simulation mode
+    if (!ai) {
+      return processMockQuery(query, products, sales, totalInventoryValue, lowStockItems);
+    }
     
     // 2. Build the prompt with context
     const prompt = `

@@ -77,11 +77,11 @@ export default function Sales() {
       {showForm && (
         <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} className="glass-panel p-6 rounded-2xl mb-6">
           <h2 className="text-xl font-bold mb-4">New Sale</h2>
-          <form onSubmit={handleRecordSale} className="flex gap-4 items-end">
-            <div className="flex-1">
+          <form onSubmit={handleRecordSale} className="grid grid-cols-1 sm:grid-cols-3 gap-4 items-end">
+            <div className="w-full">
               <label className="block text-sm font-medium text-gray-400 mb-1">Product</label>
               <select 
-                className="input-field" 
+                className="input-field w-full" 
                 value={selectedProductId} 
                 onChange={(e) => setSelectedProductId(e.target.value)}
                 required
@@ -92,18 +92,18 @@ export default function Sales() {
                 ))}
               </select>
             </div>
-            <div className="w-32">
+            <div className="w-full">
               <label className="block text-sm font-medium text-gray-400 mb-1">Quantity</label>
               <input 
                 type="number" 
                 min="1" 
-                className="input-field" 
+                className="input-field w-full" 
                 value={quantity} 
                 onChange={(e) => setQuantity(Number(e.target.value))}
                 required
               />
             </div>
-            <button type="submit" className="btn-primary py-2 px-6 h-[42px]">Submit</button>
+            <button type="submit" className="btn-primary w-full py-2 px-6 h-[42px]">Submit</button>
           </form>
         </motion.div>
       )}

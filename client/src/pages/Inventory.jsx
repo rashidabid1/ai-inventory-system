@@ -114,7 +114,23 @@ export default function Inventory() {
       setIsDrawerOpen(false);
       fetchProducts();
     } catch (err) {
-      setFormError(err.response?.data?.message || 'Error occurred while saving product.');
+      console.error('Error saving product:', err);
+      if (err.response?.data?.message) {
+        const msg = err.response.data.message;
+        if (msg.includes('E11000') || msg.includes('duplicate key')) {
+          setFormError('Duplicate SKU Error: This SKU code is already registered to another product. Please use a unique SKU!');
+        } else {
+          setFormError(msg);
+        }
+      } else if (err.message) {
+        if (err.message.includes('Network Error')) {
+          setFormError('Network Error: Unable to reach the backend server. Please ensure the backend server is online or your local server is running!');
+        } else {
+          setFormError(`Save failed: ${err.message}`);
+        }
+      } else {
+        setFormError('An unexpected error occurred while saving the product.');
+      }
     } finally {
       setSubmitting(false);
     }

@@ -1,15 +1,16 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { LayoutDashboard, Package, ShoppingCart, Truck, Users, Settings, Sparkles, X, LogOut } from 'lucide-react';
+import { LayoutDashboard, Package, ShoppingCart, Truck, Users, Settings, Bot, X, LogOut } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useAppAuth } from '../hooks/useAppAuth';
+import LogoIcon from './LogoIcon';
 
 const navItems = [
   { icon: LayoutDashboard, label: 'Dashboard', path: '/' },
   { icon: Package, label: 'Inventory', path: '/inventory' },
   { icon: ShoppingCart, label: 'Sales', path: '/sales' },
   { icon: Truck, label: 'Purchases', path: '/purchases' },
-  { icon: Sparkles, label: 'AI Assistant', path: '/ai-assistant' },
+  { icon: Bot, label: 'AI Assistant', path: '/ai-assistant' },
   { icon: Users, label: 'Directory', path: '/directory' },
   { icon: Settings, label: 'Settings', path: '/settings' },
 ];
@@ -34,13 +35,7 @@ export default function Sidebar({ isOpen, setIsOpen }) {
       >
         <div className="p-6 mb-4 flex justify-between items-center">
           <div className="flex items-center gap-3">
-            <div className="relative flex items-center justify-center w-9 h-9 rounded-xl bg-gradient-to-br from-primary to-purple-600 shadow-[0_0_15px_rgba(99,102,241,0.3)] overflow-hidden">
-              <div className="absolute inset-[1px] bg-[#0B0F19] rounded-[10px] flex items-center justify-center">
-                <span className="text-sm font-black tracking-tighter bg-clip-text text-transparent bg-gradient-to-br from-primary to-purple-400">
-                  AI
-                </span>
-              </div>
-            </div>
+            <LogoIcon className="w-9 h-9" />
             <span className="text-xl font-bold tracking-tight text-white flex items-center">
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-purple-400 font-extrabold">AI</span>
               <span className="text-gray-200 font-medium">nventory</span>

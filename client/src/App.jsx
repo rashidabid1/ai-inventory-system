@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Menu, Sparkles } from 'lucide-react';
+import { Menu } from 'lucide-react';
 import { SignedIn, SignedOut, SignIn } from '@clerk/clerk-react';
 import Sidebar from './components/Sidebar';
 import Dashboard from './pages/Dashboard';
@@ -10,6 +10,7 @@ import Purchases from './pages/Purchases';
 import AiAssistant from './pages/AiAssistant';
 import Directory from './pages/Directory';
 import SettingsPage from './pages/Settings';
+import LogoIcon from './components/LogoIcon';
 
 const publishableKey = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
 
@@ -21,13 +22,7 @@ function AuthenticatedApp({ sidebarOpen, setSidebarOpen }) {
       {/* Mobile header bar */}
       <div className="md:hidden flex items-center justify-between p-4 bg-[#0B0F19]/90 backdrop-blur-md border-b border-border fixed top-0 left-0 right-0 z-30 h-16">
         <div className="flex items-center gap-2">
-          <div className="relative flex items-center justify-center w-7 h-7 rounded-lg bg-gradient-to-br from-primary to-purple-600 shadow-[0_0_10px_rgba(99,102,241,0.3)] overflow-hidden">
-            <div className="absolute inset-[1px] bg-[#0B0F19] rounded-[7px] flex items-center justify-center">
-              <span className="text-[10px] font-black tracking-tighter bg-clip-text text-transparent bg-gradient-to-br from-primary to-purple-400">
-                AI
-              </span>
-            </div>
-          </div>
+          <LogoIcon className="w-8 h-8" />
           <span className="text-lg font-bold tracking-tight text-white flex items-center">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-purple-400 font-extrabold">AI</span>
             <span className="text-gray-200 font-medium">nventory</span>
@@ -77,7 +72,7 @@ function App() {
             
             <div className="glass-panel p-8 rounded-3xl z-10 max-w-md w-full border border-border flex flex-col items-center">
               <div className="flex items-center gap-2 mb-6">
-                <Sparkles className="text-primary w-8 h-8 animate-pulse" />
+                <LogoIcon className="w-10 h-10 animate-bounce" />
                 <h1 className="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-primary to-purple-500">
                   AInventory
                 </h1>

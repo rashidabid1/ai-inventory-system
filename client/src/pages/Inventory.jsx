@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Plus, Search, Edit2, Trash2, X, Sparkles } from 'lucide-react';
+import { Plus, Search, Edit2, Trash2, X, Package } from 'lucide-react';
 
 export default function Inventory() {
   const [products, setProducts] = useState([]);
@@ -229,7 +229,7 @@ export default function Inventory() {
                 {/* Header */}
                 <div className="flex justify-between items-center pb-6 border-b border-border mb-6">
                   <div className="flex items-center gap-2">
-                    <Sparkles className="text-primary w-5 h-5" />
+                    <Package className="text-primary w-5 h-5" />
                     <h2 className="text-xl font-bold text-white">
                       {isEditing ? 'Edit Catalogue Item' : 'Register New Item'}
                     </h2>

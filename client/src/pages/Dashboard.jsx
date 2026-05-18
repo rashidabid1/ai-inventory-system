@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { motion } from 'framer-motion';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, BarChart, Bar } from 'recharts';
-import { Package, TrendingUp, AlertCircle, DollarSign, Sparkles } from 'lucide-react';
+import { Package, TrendingUp, AlertCircle, DollarSign, Bot } from 'lucide-react';
 
 export default function Dashboard() {
   const [products, setProducts] = useState([]);
@@ -120,7 +120,7 @@ export default function Dashboard() {
           className="glass-panel p-6 rounded-2xl flex flex-col"
         >
           <div className="flex items-center gap-2 mb-6">
-            <Sparkles className="text-primary w-6 h-6" />
+            <Bot className="text-primary w-6 h-6" />
             <h3 className="text-xl font-bold text-white">AI Insights</h3>
           </div>
           

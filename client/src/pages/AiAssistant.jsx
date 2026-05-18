@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import axios from 'axios';
 import { motion } from 'framer-motion';
-import { Send, Bot, User, Sparkles } from 'lucide-react';
+import { Send, Bot, User } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 
 export default function AiAssistant() {
@@ -51,7 +51,7 @@ export default function AiAssistant() {
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex flex-col h-[calc(100vh-80px)]">
       <header className="mb-6 flex items-center gap-3">
         <div className="p-3 bg-primary/20 rounded-xl">
-          <Sparkles className="w-6 h-6 text-primary" />
+          <Bot className="w-6 h-6 text-primary" />
         </div>
         <div>
           <h1 className="text-3xl font-bold text-white">AI Data Assistant</h1>

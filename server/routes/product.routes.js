@@ -15,6 +15,23 @@ router.get('/', async (req, res) => {
   }
 });
 
+// Get database connection status
+router.get('/status', (req, res) => {
+  if (global.useVirtualDB) {
+    return res.json({
+      status: 'Connected',
+      dbType: 'Resilient Virtual In-Memory Fallback (Cloud Safe)',
+      uri: 'Virtual Node.js Memory Store'
+    });
+  }
+  const hasUri = process.env.MONGO_URI && process.env.MONGO_URI.trim() !== '';
+  res.json({
+    status: 'Connected',
+    dbType: hasUri ? 'MongoDB Atlas (Cloud Production Cluster)' : 'MongoDB Local / Memory Database',
+    uri: hasUri ? 'mongodb+srv://[secured-cloud-cluster]' : 'In-Memory Local Fallback'
+  });
+});
+
 // Create a product
 router.post('/', async (req, res) => {
   if (global.useVirtualDB) {

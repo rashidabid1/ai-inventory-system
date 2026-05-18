@@ -10,8 +10,19 @@ export default function SettingsPage() {
 
   useEffect(() => {
     const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+    
+    // Fetch products
     axios.get(`${API_URL}/api/products`)
       .then(res => setProducts(res.data))
+      .catch(err => console.error(err));
+
+    // Fetch dynamic database status
+    axios.get(`${API_URL}/api/products/status`)
+      .then(res => {
+        if (res.data && res.data.dbType) {
+          setDbUri(res.data.dbType);
+        }
+      })
       .catch(err => console.error(err));
   }, []);
 

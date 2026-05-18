@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Plus, Search, Edit2, Trash2, X, Package } from 'lucide-react';
+import { useLocation } from 'react-router-dom';
 
 export default function Inventory() {
   const [products, setProducts] = useState([]);
@@ -24,6 +25,7 @@ export default function Inventory() {
   const [submitting, setSubmitting] = useState(false);
 
   const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+  const location = useLocation();
 
   const fetchProducts = async () => {
     try {
@@ -38,7 +40,12 @@ export default function Inventory() {
 
   useEffect(() => {
     fetchProducts();
-  }, []);
+    if (location.state && location.state.openAddDrawer) {
+      handleOpenAdd();
+      // Clear location state safely
+      window.history.replaceState({}, document.title);
+    }
+  }, [location]);
 
   const handleDelete = async (id) => {
     if (window.confirm('Are you sure you want to delete this product?')) {

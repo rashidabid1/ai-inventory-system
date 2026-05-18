@@ -3,11 +3,13 @@ import axios from 'axios';
 import { motion } from 'framer-motion';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, BarChart, Bar } from 'recharts';
 import { Package, TrendingUp, AlertCircle, DollarSign, Bot } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 export default function Dashboard() {
   const [products, setProducts] = useState([]);
   const [sales, setSales] = useState([]);
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -51,11 +53,17 @@ export default function Dashboard() {
 
   return (
     <div className="space-y-6">
-      <header className="flex justify-between items-center mb-8">
+      <header className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8">
         <div>
           <h1 className="text-3xl font-bold text-white">Dashboard Overview</h1>
           <p className="text-gray-400 mt-1">Welcome back. Here is your inventory summary.</p>
         </div>
+        <button 
+          onClick={() => navigate('/inventory', { state: { openAddDrawer: true } })}
+          className="btn-primary flex items-center gap-2 shadow-[0_0_15px_rgba(99,102,241,0.4)]"
+        >
+          <Package className="w-5 h-5" /> Register Product
+        </button>
       </header>
 
       {/* Stats Grid */}
